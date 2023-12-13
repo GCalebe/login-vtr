@@ -13,7 +13,7 @@ mongoose.connect("mongodb://localhost/27017");
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(require("express-session")({
-    secret: "Rusty is a dog",
+    secret: "Rusty",
     resave: false,
     saveUninitialized: false
 }));
@@ -54,10 +54,10 @@ app.post("/login", async function (req, res) {
             if (result) {
                 res.render("secret");
             } else {
-                res.status(400).json({ error: "password doesn't match" });
+                res.status(400).json({ error: "senha incorreta" });
             }
         } else {
-            res.status(400).json({ error: "User doesn't exist" });
+            res.status(400).json({ error: "Usuario nao existe" });
         }
     } catch (error) {
         res.status(400).json({ error });
