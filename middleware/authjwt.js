@@ -1,3 +1,9 @@
+////////////////////////////////////////////////////////////////
+// VERIFICAR TOKEN E FUNÇÃO - ´para autorização e autenticação//
+////////////////////////////////////////////////////////////////
+
+
+
 const jwt = require("jsonwebtoken");
 const config = require("../config/auth.config.js");
 const db = require("../models");
@@ -8,7 +14,7 @@ verifyToken = (req, res, next) => {
 
     if (!token) {
         return res.status(403).send({
-            message: "No token provided!"
+            message: "Nenhum Token!"
         });
     }
 
@@ -17,7 +23,7 @@ verifyToken = (req, res, next) => {
         (err, decoded) => {
             if (err) {
                 return res.status(401).send({
-                    message: "Unauthorized!",
+                    message: "Não autorizado!",
                 });
             }
             req.userId = decoded.id;
@@ -36,7 +42,7 @@ isAdmin = (req, res, next) => {
             }
 
             res.status(403).send({
-                message: "Require Admin Role!"
+                message: "Precisa ser admin!"
             });
             return;
         });
@@ -54,7 +60,7 @@ isModerator = (req, res, next) => {
             }
 
             res.status(403).send({
-                message: "Require Moderator Role!"
+                message: "Precisa ser moderador!"
             });
         });
     });
@@ -76,7 +82,7 @@ isModeratorOrAdmin = (req, res, next) => {
             }
 
             res.status(403).send({
-                message: "Require Moderator or Admin Role!"
+                message: "Precisa ser moderador ou admin!"
             });
         });
     });

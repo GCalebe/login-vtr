@@ -1,15 +1,17 @@
+// CRUD RES para teste.
+
 exports.allAccess = (req, res) => {
-    res.status(200).send("Public Content.");
+    res.status(200).send("Conteúdo Público.");
 };
 
 exports.userBoard = (req, res) => {
-    res.status(200).send("User Content.");
+    res.status(200).send("Conteúdo de User.");
 };
 
 exports.adminBoard = (req, res) => {
-    res.status(200).send("Admin Content.");
+    res.status(200).send("Conteúdo de Admin.");
 };
 
 exports.moderatorBoard = (req, res) => {
-    res.status(200).send("Moderator Content.");
+    res.status(200).send("Conteúdo de Moderador.");
 };

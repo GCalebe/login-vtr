@@ -1,3 +1,7 @@
+/////////////////////////////////////
+///// CONFIG DO BD DO USUÁRIO   /////
+/////////////////////////////////////
+
 module.exports = (sequelize, Sequelize) => {
     const User = sequelize.define("users", {
         username: {

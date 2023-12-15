@@ -1,3 +1,9 @@
+////////////////////////////////
+// PROCESSAR INSCRIÇÃO E LOGIN//
+////////////////////////////////
+
+
+//CRIAR CONSTANTES
 const db = require("../models");
 const config = require("../config/auth.config");
 const User = db.user;
@@ -8,8 +14,10 @@ const Op = db.Sequelize.Op;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 
+
+// Salvar usuários
 exports.signup = (req, res) => {
-    // Save User to Database
+   
     User.create({
         username: req.body.username,
         email: req.body.email,
@@ -25,13 +33,12 @@ exports.signup = (req, res) => {
                     }
                 }).then(roles => {
                     user.setRoles(roles).then(() => {
-                        res.send({ message: "User was registered successfully!" });
+                        res.send({ message: "Usuário Registrado!" });
                     });
                 });
             } else {
-                // user role = 1
                 user.setRoles([1]).then(() => {
-                    res.send({ message: "User was registered successfully!" });
+                    res.send({ message: "Usuário Registrado!" });
                 });
             }
         })
@@ -40,6 +47,8 @@ exports.signup = (req, res) => {
         });
 };
 
+
+// Login usuários
 exports.signin = (req, res) => {
     User.findOne({
         where: {
@@ -48,7 +57,7 @@ exports.signin = (req, res) => {
     })
         .then(user => {
             if (!user) {
-                return res.status(404).send({ message: "User Not found." });
+                return res.status(404).send({ message: "Usuário não Encontrado." });
             }
 
             var passwordIsValid = bcrypt.compareSync(
@@ -59,7 +68,7 @@ exports.signin = (req, res) => {
             if (!passwordIsValid) {
                 return res.status(401).send({
                     accessToken: null,
-                    message: "Invalid Password!"
+                    message: "Senha Incorreta!"
                 });
             }
 
@@ -68,7 +77,7 @@ exports.signin = (req, res) => {
                 {
                     algorithm: 'HS256',
                     allowInsecureKeySizes: true,
-                    expiresIn: 86400, // 24 hours
+                    expiresIn: 86400, // 1 DIA
                 });
 
             var authorities = [];
@@ -79,7 +88,7 @@ exports.signin = (req, res) => {
                 res.status(200).send({
                     id: user.id,
                     username: user.username,
-                    email: user.email,
+                    ome: user.ome,
                     roles: authorities,
                     accessToken: token
                 });

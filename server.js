@@ -1,34 +1,35 @@
+// Criar Constantes
 const express = require("express");
 const cors = require("cors");
 const db = require("./app/models");
 const app = express();
 
 var corsOptions = {
-    origin: "http://localhost:8081"
+    origin: "http://localhost:3000"
 };
 
 db.sequelize.sync();
 
 app.use(cors(corsOptions));
 
-// parse requests of content-type - application/json
+// analisa solicitações do tipo de conteúdo - application/json
 app.use(express.json());
 
-// parse requests of content-type - application/x-www-form-urlencoded
+// analisa solicitações do tipo de conteúdo - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-// simple route
+// Rota simples
 app.get("/", (req, res) => {
-    res.json({ message: "Welcome to bezkoder application." });
+    res.json({ message: "Funcionando." });
 });
 
-// routes
+// Rotas
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
 
 
-// set port, listen for requests
+// Setar porta e listen para os REQ
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}.`);
+    console.log(`Servidor está rodando na porta: ${PORT}.`);
 });

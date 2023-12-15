@@ -1,3 +1,5 @@
+// GET público e protegido para usuarios, moderadores e adm.
+
 const { authJwt } = require("../middleware");
 const controller = require("../controllers/user.controller");
 

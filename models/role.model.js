@@ -1,5 +1,10 @@
+/////////////////////////////////////
+///// CONFIG DO BD DAS FUNÇÕES   /////
+/////////////////////////////////////
+
+
 module.exports = (sequelize, Sequelize) => {
-  const Role = sequelize.define("roles", {
+  const Role = sequelize.define("funções", {
     id: {
       type: Sequelize.INTEGER,
       primaryKey: true
