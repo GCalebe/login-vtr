@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Rota simples
 app.get("/", (req, res) => {
-    res.sendFile(path + "login.html");
+    res.sendFile(path + "home.html");
 });
 
 
