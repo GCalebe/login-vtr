@@ -1,14 +1,14 @@
 // Criar Constantes
 const express = require("express");
 const cors = require("cors");
-const db = require("./app/models");
+const db = require("./backend/models");
 const app = express();
-
+const path = __dirname + '/backend/views/';
 var corsOptions = {
     origin: "http://localhost:3000"
 };
 
-db.sequelize.sync();
+db.sequelize.sync()
 
 app.use(cors(corsOptions));
 
@@ -20,12 +20,14 @@ app.use(express.urlencoded({ extended: true }));
 
 // Rota simples
 app.get("/", (req, res) => {
-    res.json({ message: "Funcionando." });
+    res.sendFile(path + "login.html");
 });
 
+
+
 // Rotas
-require('./app/routes/auth.routes')(app);
-require('./app/routes/user.routes')(app);
+require('./backend/routes/auth.routes')(app);
+require('./backend/routes/user.routes')(app);
 
 
 // Setar porta e listen para os REQ
@@ -34,9 +36,13 @@ app.listen(PORT, () => {
     console.log(`Servidor está rodando na porta: ${PORT}.`);
 });
 
+
+
 // Constantes pro chat
+let http = require ('http');
+let server = http.Server(app);
 const socketIO = require('socket.io');
-const io = socketIO(app);
+const io = socketIO(server);
 // chat
 io.on("conecção", (socket) => {
     console.log("conectado");
