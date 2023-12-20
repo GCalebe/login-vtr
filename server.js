@@ -24,7 +24,6 @@ app.get("/", (req, res) => {
 });
 
 
-
 // Rotas
 require('./backend/routes/auth.routes')(app);
 require('./backend/routes/user.routes')(app);
