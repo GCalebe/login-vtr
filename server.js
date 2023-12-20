@@ -33,3 +33,17 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor está rodando na porta: ${PORT}.`);
 });
+
+// Constantes pro chat
+const socketIO = require('socket.io');
+const io = socketIO(app);
+// chat
+io.on("conecção", (socket) => {
+    console.log("conectado");
+
+    socket.on("nova-mensagem", (mensage) => {
+        console.log(mensage);
+        socket.emit("nova-mensagem", mensage);
+    });
+});
+
