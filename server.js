@@ -5,17 +5,17 @@ const db = require("./backend/models");
 const app = express();
 const path = __dirname + '/backend/views/';
 var corsOptions = {
-    origin: "http://localhost:3000"
+    origin: "http://localhost:4200"
 };
 
 db.sequelize.sync()
 
 app.use(cors(corsOptions));
 
-// analisa solicitações do tipo de conteúdo - application/json
+// analisa solicitaï¿½ï¿½es do tipo de conteï¿½do - application/json
 app.use(express.json());
 
-// analisa solicitações do tipo de conteúdo - application/x-www-form-urlencoded
+// analisa solicitaï¿½ï¿½es do tipo de conteï¿½do - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
 // Rota simples
@@ -32,7 +32,7 @@ require('./backend/routes/user.routes')(app);
 // Setar porta e listen para os REQ
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Servidor está rodando na porta: ${PORT}.`);
+    console.log(`Servidor estï¿½ rodando na porta: ${PORT}.`);
 });
 
 
@@ -43,7 +43,7 @@ let server = http.Server(app);
 const socketIO = require('socket.io');
 const io = socketIO(server);
 // chat
-io.on("conecção", (socket) => {
+io.on("conecï¿½ï¿½o", (socket) => {
     console.log("conectado");
 
     socket.on("nova-mensagem", (mensage) => {

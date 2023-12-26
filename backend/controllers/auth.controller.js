@@ -1,5 +1,5 @@
 ////////////////////////////////
-// PROCESSAR INSCRIÇÃO E LOGIN//
+// PROCESSAR INSCRIï¿½ï¿½O E LOGIN//
 ////////////////////////////////
 
 
@@ -15,7 +15,7 @@ var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 
 
-// Salvar usuários
+// Salvar usuï¿½rios
 exports.signup = (req, res) => {
    
     User.create({
@@ -33,12 +33,12 @@ exports.signup = (req, res) => {
                     }
                 }).then(roles => {
                     user.setRoles(roles).then(() => {
-                        res.send({ message: "Usuário Registrado!" });
+                        res.send({ message: "Usuï¿½rio Registrado!" });
                     });
                 });
             } else {
                 user.setRoles([1]).then(() => {
-                    res.send({ message: "Usuário Registrado!" });
+                    res.send({ message: "Usuï¿½rio Registrado!" });
                 });
             }
         })
@@ -48,7 +48,7 @@ exports.signup = (req, res) => {
 };
 
 
-// Login usuários
+// Login usuï¿½rios
 exports.signin = (req, res) => {
     User.findOne({
         where: {
@@ -57,7 +57,7 @@ exports.signin = (req, res) => {
     })
         .then(user => {
             if (!user) {
-                return res.status(404).send({ message: "Usuário não Encontrado." });
+                return res.status(404).send({ message: "Usuï¿½rio nï¿½o Encontrado." });
             }
 
             var passwordIsValid = bcrypt.compareSync(
