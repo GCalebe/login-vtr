@@ -9,7 +9,7 @@ const db = require("../models");
 const ROLES = db.ROLES;
 const User = db.user;
 
-checkDuplicateUsernameOrlogin = (req, res, next) => {
+checkDuplicate = (req, res, next) => {
   // Username
   User.findOne({
     where: {
@@ -26,7 +26,7 @@ checkDuplicateUsernameOrlogin = (req, res, next) => {
     // Email
     User.findOne({
       where: {
-        login: req.body.login
+        email: req.body.email
       }
     }).then(user => {
       if (user) {
@@ -57,7 +57,7 @@ checkRolesExisted = (req, res, next) => {
 }
 
 const verifySignUp = {
-  checkDuplicateUsernameOrlogin: checkDuplicateUsernameOrlogin,
+  checkDuplicate: checkDuplicate,
 };
 
 module.exports = verifySignUp;
