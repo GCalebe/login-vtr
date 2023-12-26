@@ -8,7 +8,26 @@ var corsOptions = {
     origin: "http://localhost:4200"
 };
 
-db.sequelize.sync()
+db.sequelize.sync({force: true}).then(() => {
+  iniciar();
+});
+const Role = db.role;
+function iniciar() {
+  Role.create({
+    id: 1,
+    name: "user"
+  });
+ 
+  Role.create({
+    id: 2,
+    name: "moderator"
+  });
+ 
+  Role.create({
+    id: 3,
+    name: "admin"
+  });
+}
 
 app.use(cors(corsOptions));
 
