@@ -22,9 +22,9 @@ export class Interceptor implements HttpInterceptor {
         } else {
             headers = new HttpHeaders()
                 .append("accept", "aplication/json")
-                .append("Content-Type", "aplication/json")
-                .append("Authorization", "Bearer " + this.authenticateService.obterToken())
-                // .append("Access-Control-Allow-Headers", "x-access-token, Origin, Content-Type, Accept")
+                .append("Content-Type", "application/json; charset=utf-8")
+                // .append("Authorization", "Bearer " + this.authenticateService.obterToken())
+                .append("Access-Control-Allow-Headers", "x-access-token, Origin, Content-Type, Accept")
         }
 
         let request = req.clone({headers});

@@ -8,7 +8,7 @@ import { AuthenticateService } from '../../services/authenticate.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
 
@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
   login() {
     var dadosLogin = this.loginForm.getRawValue() as LoginModel;
 
+    console.log(dadosLogin);
     this.loginService.loginUsuario(dadosLogin)
       .subscribe(
         token => {

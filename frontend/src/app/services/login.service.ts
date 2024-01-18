@@ -15,6 +15,7 @@ export class LoginService{
     // private readonly baseURL = environment["endPoint"];
 
     loginUsuario(objeto: any) {
-        return this.httpClient.post(`http://localhost:3000/api/auth/signin`, objeto);
+        console.log(objeto);
+        return this.httpClient.post(`http://localhost:3000/signin`, objeto);
     }
 }
