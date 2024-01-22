@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+/* CSS Global */
+
+:root {
+    --cor-amarelo: #ffe71b;
+    --cor-vermelho: #ed3237;
+    --cor-azul: #354686;
+    --cor-branco: #ebecec;
+    --cor-verde: #00a859;
+    --cor-preto: #000000;
+}

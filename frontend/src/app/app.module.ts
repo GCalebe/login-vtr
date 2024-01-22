@@ -7,13 +7,17 @@ import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { Interceptor } from './interceptor/interceptor';
+import { HeaderComponent } from './components/template/header/header.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const serviceAuthenticate = [Interceptor];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
