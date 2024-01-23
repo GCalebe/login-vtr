@@ -23,7 +23,6 @@ export class Interceptor implements HttpInterceptor {
             headers = new HttpHeaders()
                 .append("accept", "aplication/json")
                 .append("Content-Type", "application/json; charset=utf-8")
-                // .append("Authorization", "Bearer " + this.authenticateService.obterToken())
                 .append("Access-Control-Allow-Headers", "x-access-token, Origin, Content-Type, Accept")
         }
 

@@ -9,6 +9,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { Interceptor } from './interceptor/interceptor';
 import { HeaderComponent } from './components/template/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
+import { SideComponent } from './components/template/side/side.component';
 
 const serviceAuthenticate = [Interceptor];
 
@@ -17,7 +18,8 @@ const serviceAuthenticate = [Interceptor];
     AppComponent,
     LoginComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    SideComponent
   ],
   imports: [
     BrowserModule,

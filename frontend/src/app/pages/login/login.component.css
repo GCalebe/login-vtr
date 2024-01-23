@@ -36,7 +36,6 @@
 
 .input-submit {
     border: 1px solid;
-    /* color: white; */
     padding: 15px 0;
     margin: 5px;
     text-align: center;
@@ -49,5 +48,5 @@
 
 p {
     width: auto;
-    font-size: small;
+    font-size: 12px;
 }

@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
           let tokenUsuario: any = token;
           console.log(tokenUsuario.token);
           this.authenticateService.definirToken(tokenUsuario.token);
-          this.router.navigate(["/index"]);
+          this.router.navigate(["/home"]);
         },
         erro => {
           alert("Usuario ou senha incorreta!")
