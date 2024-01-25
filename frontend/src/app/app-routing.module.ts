@@ -11,13 +11,16 @@ const routes: Routes = [
     redirectTo: "login"
   },
   {
-    path: "login", component: LoginComponent
+    path: "login", 
+    component: LoginComponent
   },
   {
-    path: "index", component: AppComponent
+    path: "index", 
+    component: AppComponent
   },
   {
-    path: "home", component: HomeComponent
+    path: "home", 
+    component: HomeComponent
   }
 ];
 

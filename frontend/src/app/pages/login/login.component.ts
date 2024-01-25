@@ -32,14 +32,11 @@ export class LoginComponent implements OnInit {
 
   login() {
     var dadosLogin = this.loginForm.getRawValue() as LoginModel;
-
-    console.log(dadosLogin);
     this.loginService.loginUsuario(dadosLogin)
       .subscribe(
-        token => {
-          let tokenUsuario: any = token;
-          console.log(tokenUsuario.token);
-          this.authenticateService.definirToken(tokenUsuario.token);
+        usuario => {
+          let usuarioLogado: any = usuario;
+          this.authenticateService.definirUsuarioLogado(usuarioLogado);
           this.router.navigate(["/home"]);
         },
         erro => {

@@ -12,8 +12,6 @@ export class LoginService{
 
     constructor(private httpClient: HttpClient){}
 
-    // private readonly baseURL = environment["endPoint"];
-
     loginUsuario(objeto: any) {
         console.log(objeto);
         return this.httpClient.post(`http://localhost:3000/signin`, objeto);
